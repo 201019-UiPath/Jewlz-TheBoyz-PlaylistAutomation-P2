@@ -7,7 +7,7 @@ For our P2, we have decided to make an automation in UI Path Studio based off of
 This bot will automatically sort and categorize the users emails by a certain set of rules. We plan on adding facial recogniztion, the ability to login to different email services, and anything else we have time for.
 
 # Flow Chart
-(Reference image url of flow chart image)
+https://media.discordapp.net/attachments/776178964569128961/780208813889421312/Screen_Shot_2020-11-22_at_4.10.56_PM.png?width=1454&height=380
 
 # Tech Stack
 Phase 1:
