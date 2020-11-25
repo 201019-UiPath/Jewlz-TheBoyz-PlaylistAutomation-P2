@@ -31,3 +31,9 @@ Implement Phase 1 as defined previously but instead of asking for credentials, t
 Our audience will include:
 -Anyone with a gmail account
 -Anyone who wants to categorize their emails
+
+# Tasks
+* Email Categorization Process
+* Spiffen up the HTML
+* Transfer all sequence's to state machine - Brian
+* Create web service for email data categorization
