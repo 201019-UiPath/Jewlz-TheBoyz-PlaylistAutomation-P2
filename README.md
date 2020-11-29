@@ -31,3 +31,12 @@ Implement Phase 1 as defined previously but instead of asking for credentials, t
 Our audience will include:
 -Anyone with a gmail account
 -Anyone who wants to categorize their emails
+
+# Tasks
+* Email Categorization Process
+* Spiffen up the HTML
+* Transfer all sequence's to state machine - Brian
+* Create web service for email data categorization
+
+* Discuss and define Dispatcher/Performer Design pattern
+- We need two define two parts to our appplcation, One that puts data into an orchestrator queue (dispatcher) and another that retrieves the data from the Queue and does something with it (Performer). This is part of the RE Framework
