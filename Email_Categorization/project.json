@@ -5,7 +5,7 @@
   "dependencies": {
     "UiPath.Excel.Activities": "[2.5.0]",
     "UiPath.Python.Activities": "[1.1.6863.33404]",
-    "UiPath.System.Activities": "[18.4.2]",
+    "UiPath.System.Activities": "[20.10.1]",
     "UiPath.UIAutomation.Activities": "[18.4.3]"
   },
   "webServices": [],
@@ -31,6 +31,10 @@
       "privateWorkflows": []
     },
     "fileInfos": []
+  },
+  "arguments": {
+    "input": [],
+    "output": []
   },
   "expressionLanguage": "VisualBasic"
 }
