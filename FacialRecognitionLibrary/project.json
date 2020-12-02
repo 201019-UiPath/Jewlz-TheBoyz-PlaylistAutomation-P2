@@ -1,0 +1,41 @@
+{
+  "name": "FacialRecognition",
+  "description": "Facial Recogntion Library",
+  "main": "Main.xaml",
+  "dependencies": {
+    "UiPath.Excel.Activities": "2.7.2",
+    "UiPath.Mail.Activities": "1.7.2",
+    "UiPath.Python.Activities": "1.1.7594.35963",
+    "UiPath.System.Activities": "19.10.1",
+    "UiPath.UIAutomation.Activities": "19.11.3"
+  },
+  "webServices": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "19.10.5.0",
+  "projectVersion": "1.0.3",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "isPausable": true,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Library",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": [
+        "_train.xaml",
+        "CaptureAndIdentify.xaml",
+        "CaptureAndTrain.xaml"
+      ]
+    },
+    "fileInfos": []
+  },
+  "expressionLanguage": "VisualBasic"
+}
