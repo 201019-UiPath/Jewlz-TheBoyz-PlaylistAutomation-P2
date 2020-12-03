@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>723,923</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>396,718.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>initRules_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -54,9 +54,12 @@
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="initRules" sap:VirtualizedContainerService.HintSize="703,863" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="initRules" sap:VirtualizedContainerService.HintSize="376,618.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="Brian" Name="TestName" />
       <Variable x:TypeArguments="sd:DataTable" Name="RulesDT" />
@@ -66,7 +69,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ReadRange AddHeaders="True" sap2010:Annotation.AnnotationText="TestName variable can be removed once Facial Recognition is all set up" DataTable="[RulesDT]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="661,129" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[TestName]" WorkbookPath="../Rules.xlsx">
+    <ui:ReadRange AddHeaders="True" sap2010:Annotation.AnnotationText="TestName variable can be removed once Facial Recognition is all set up" DataTable="[RulesDT]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[TestName]" WorkbookPath="../Rules.xlsx">
       <ui:ReadRange.Range>
         <InArgument x:TypeArguments="x:String">
           <Literal x:TypeArguments="x:String" Value="" />
@@ -78,44 +81,19 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ReadRange>
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[RulesDT]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="661,602" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[RulesDT]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="334,354.4" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Add queue items" sap:VirtualizedContainerService.HintSize="611,454" sap2010:WorkflowViewState.IdRef="Sequence_3">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="x:Boolean" Name="isAttachment" />
-            </Sequence.Variables>
+          <Sequence DisplayName="Add queue items" sap:VirtualizedContainerService.HintSize="284,206" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[row(&quot;Attachment&quot;).ToString is &quot;TRUE&quot; or row(&quot;Attachment&quot;).ToString is &quot;true&quot; or row(&quot;Attachment&quot;).ToString is &quot;True&quot;]" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_1">
-              <If.Then>
-                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:Boolean">[isAttachment]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
-                  </Assign.Value>
-                </Assign>
-              </If.Then>
-              <If.Else>
-                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:Boolean">[isAttachment]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:Boolean">False</InArgument>
-                  </Assign.Value>
-                </Assign>
-              </If.Else>
-            </If>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="569,114" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -123,10 +101,10 @@
               </sap:WorkflowViewStateService.ViewState>
               <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]">
                 <ui:AddQueueItem.ItemInformation>
-                  <InArgument x:TypeArguments="x:String" x:Key="Name">[row("Name").ToString]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="Value">[row("Value").ToString]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="Type">[row("Type").ToString]</InArgument>
-                  <InArgument x:TypeArguments="x:Boolean" x:Key="Attachment">[isAttachment]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="TagName">[row("Tag Name").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="from">[row("from").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="subject">[row("subject").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="has">[row("has").ToString]</InArgument>
                 </ui:AddQueueItem.ItemInformation>
               </ui:AddQueueItem>
             </Sequence>
