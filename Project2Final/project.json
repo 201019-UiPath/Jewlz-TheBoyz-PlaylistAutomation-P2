@@ -3,6 +3,7 @@
   "description": "Robotic Enterprise Framework for project 2",
   "main": "Main.xaml",
   "dependencies": {
+    "UiPath.Credentials.Activities": "[1.1.6479.13204]",
     "UiPath.Excel.Activities": "[2.7.2]",
     "UiPath.GSuite.Activities": "[1.8.0]",
     "UiPath.System.Activities": "[19.10.1]",
