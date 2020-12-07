@@ -5,7 +5,7 @@ import time
 
 
 
-def startPreprocessing(cwd, datadir):
+def startPreprocessing(cwd):
 
     input_datadir = '~/OneDrive/Desktop/IdentificationModule/pre_img'
     output_datadir = '~/OneDrive/Desktop/IdentificationModule/train_img'
