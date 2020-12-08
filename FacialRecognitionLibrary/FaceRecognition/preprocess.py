@@ -12,18 +12,20 @@ class preprocesses:
     def __init__(self, input_datadir, output_datadir):
         self.input_datadir = input_datadir
         self.output_datadir = output_datadir
+    
 
     def collect_data(self):
-        output_dir = os.path.expanduser(self.output_datadir)
+        output_dir = os.path.expanduser('~/OneDrive/Desktop/IdentificationModule/pre_img')
+        npy_dir = '~/OneDrive/Desktop/IdentificationModule/npy'
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
 
-        dataset = facenet.get_dataset(self.input_datadir)
+        dataset = facenet.get_dataset('~/OneDrive/Desktop/IdentificationModule/train_img')
         with tf.Graph().as_default():
             gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.5)
             sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options, log_device_placement=False))
             with sess.as_default():
-                pnet, rnet, onet = detect_face.create_mtcnn(sess, './npy')
+                pnet, rnet, onet = detect_face.create_mtcnn(sess, os.path.expanduser(npy_dir))
 
         minsize = 20  # minimum size of face
         threshold = [0.6, 0.7, 0.7]  # three steps's threshold
@@ -99,3 +101,4 @@ class preprocesses:
                                 text_file.write('%s\n' % (output_filename))
 
         return (nrof_images_total,nrof_successfully_aligned)
+ 

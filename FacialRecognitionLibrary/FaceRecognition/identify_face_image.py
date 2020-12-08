@@ -9,10 +9,10 @@ import time
 import pickle
 import sys
 
-modeldir = './model/20170511-185253.pb'
-classifier_filename = './class/classifier.pkl'
-npy='./npy'
-train_img="./train_img"
+modeldir = '~/OneDrive/Desktop/IdentificationModule/model/20170511-185253.pb'
+classifier_filename = '~/OneDrive/Desktop/IdentificationModule/class/classifier.pkl'
+npy='~/OneDrive/Desktop/IdentificationModule/npy'
+train_img= '~/OneDrive/Desktop/IdentificationModule/train_img'
 WINDOW_TITLE = "Take photo using SPACE to continue with the process."
 
 def captureAndIdentify(cwd):
@@ -54,12 +54,12 @@ def captureAndIdentify(cwd):
 
     if img_name == '':
         return 'Error: Did not capture anything. Press SPACE to capture a photo.'
-    result_names = ""
+
     with tf.Graph().as_default():
         gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.6)
         sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options, log_device_placement=False))
         with sess.as_default():
-            pnet, rnet, onet = detect_face.create_mtcnn(sess, npy)
+            pnet, rnet, onet = detect_face.create_mtcnn(sess, os.path.expanduser(npy))
 
             minsize = 20  # minimum size of face
             threshold = [0.6, 0.7, 0.7]  # three steps's threshold
@@ -70,7 +70,7 @@ def captureAndIdentify(cwd):
             image_size = 182
             input_image_size = 160
             
-            HumanNames = os.listdir(train_img)
+            HumanNames = os.listdir(os.path.expanduser(train_img))
             HumanNames.sort()
 
             print('Loading feature extraction model')
@@ -178,4 +178,4 @@ def captureAndIdentify(cwd):
 
             cv2.destroyAllWindows()
 
-    return "Success. Valid faces detected: " +result_names
+    return "Success. Valid faces detected. Will continue with the process."

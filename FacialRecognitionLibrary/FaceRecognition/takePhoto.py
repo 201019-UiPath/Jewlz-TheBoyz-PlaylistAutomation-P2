@@ -8,20 +8,6 @@ import numpy as np
 
 WINDOW_TITLE = "Take photos using SPACE. Close window when done."
 
-def checkCredentials(user, passw, should_check):
-    if not should_check:
-        return 'Success'
-    domain, username = win32api.GetUserNameEx(win32api.NameSamCompatible).split('\\')
-    if user.lower() != username.lower():
-        return 'Wrong credentials. Please try again.'
-    try:
-        lg = win32security.LogonUser(user, domain, passw, win32security.LOGON32_LOGON_NETWORK,win32security.LOGON32_PROVIDER_DEFAULT)
-    except:
-        return 'Wrong credentials. Please try again.'
-    else:
-        return 'Success'
-
-
 def takePhoto(cwd, name):
     os.chdir(cwd)
 
@@ -29,7 +15,7 @@ def takePhoto(cwd, name):
     cam = cv2.VideoCapture(0)
     cv2.namedWindow(WINDOW_TITLE)
     img_counter = 0
-    path = "/FaceRecognition/train_img/{}/".format(name)
+    path = "/train_img/{}/".format(name)
 
     while cv2.getWindowProperty(WINDOW_TITLE, 0) >= 0:
         ret, frame = cam.read()
