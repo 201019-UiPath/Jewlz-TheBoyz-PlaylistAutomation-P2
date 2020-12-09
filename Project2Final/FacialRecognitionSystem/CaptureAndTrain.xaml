@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>631.2,1923.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>631.2,1708.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -66,7 +66,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="611.2,1823.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence sap2010:Annotation.AnnotationText="This sequence captures and trains the user for identification given a python path and local path for saving training information.&#xD;&#xA;&#xD;&#xA;Precondition: User has to have camera available&#xD;&#xA;Post action: The user has been trained in model and data is stored locally" DisplayName="CaptureTrain Sequence" sap:VirtualizedContainerService.HintSize="611.2,1648.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="name" />
       <Variable x:TypeArguments="x:String" Name="result" />
@@ -74,19 +74,25 @@
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="569.6,746.4" sap2010:WorkflowViewState.IdRef="DoWhile_1">
+    <DoWhile sap2010:Annotation.AnnotationText="Runs while name string is empty" DisplayName="Get User Name - Do While" sap:VirtualizedContainerService.HintSize="569.6,628.8" sap2010:WorkflowViewState.IdRef="DoWhile_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
       <DoWhile.Condition>
         <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="name = &quot;&quot;" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
       </DoWhile.Condition>
-      <Sequence sap:VirtualizedContainerService.HintSize="524.8,584" sap2010:WorkflowViewState.IdRef="Sequence_5">
+      <Sequence DisplayName="Input Name " sap:VirtualizedContainerService.HintSize="524.8,435.2" sap2010:WorkflowViewState.IdRef="Sequence_5">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="483.2,241.6" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="What is your name?" Title="Name Input">
+        <ui:InputDialog Options="{x:Null}" DisplayName="Name - Input Dialog" sap:VirtualizedContainerService.HintSize="483.2,92.8" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Enter your name" Title="Name Input">
           <ui:InputDialog.Result>
             <OutArgument x:TypeArguments="x:String">[name]</OutArgument>
           </ui:InputDialog.Result>
@@ -98,7 +104,7 @@
         </If>
       </Sequence>
     </DoWhile>
-    <Sequence DisplayName="Start capturing and training" sap:VirtualizedContainerService.HintSize="569.6,944" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence DisplayName="Start capturing and training" sap:VirtualizedContainerService.HintSize="569.6,795.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Default="[IdModulePath+ &quot;train_img\&quot;]" Name="workingDir" />
       </Sequence.Variables>
@@ -115,7 +121,7 @@
           <InArgument x:TypeArguments="x:String">[name.Trim]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Directory" sap:VirtualizedContainerService.HintSize="408.8,80.8" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[workingDir + name]" />
+      <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Directory" sap:VirtualizedContainerService.HintSize="408.8,85.6" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[workingDir + name]" />
       <p:PythonScope DisplayName="Python Scope" sap:VirtualizedContainerService.HintSize="408.8,414.4" sap2010:WorkflowViewState.IdRef="PythonScope_1" Path="[PythonPath]" TargetPlatform="x64">
         <p:PythonScope.Body>
           <ActivityAction x:TypeArguments="x:Object">
@@ -134,7 +140,7 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <p:LoadScript Code="{x:Null}" DisplayName="Load Python Script" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="LoadScript_2" Result="[script]" ScriptFile="FaceRecognition\takePhoto.py" />
+              <p:LoadScript Code="{x:Null}" DisplayName="Load Python Script" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="LoadScript_2" Result="[script]" ScriptFile="FacialRecognitionSystem\FaceRecognition\takePhoto.py" />
               <p:InvokeMethod DisplayName="Invoke Python Method" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="InvokeMethod_2" Instance="[script]" Name="takePhoto" Parameters="[{ IdModulePath , name }]" Result="[obj]" />
               <p:GetObject x:TypeArguments="x:Int32" DisplayName="Get Python Object" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="GetObject`1_1" PythonObject="[obj]" Result="[numPhotosTaken]" />
               <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Taken &quot; + numPhotosTaken.ToString + &quot; photos. Will continue with the training process.&quot;]" TopMost="True" />
@@ -143,12 +149,6 @@
         </p:PythonScope.Body>
       </p:PythonScope>
       <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="408.8,22.4" sap2010:WorkflowViewState.IdRef="Delay_1" />
-      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="408.8,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="_train.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="x:String" x:Key="PythonPath">[PythonPath]</InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="IdModulePath">[IdModulePath]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
     </Sequence>
   </Sequence>
 </Activity>
