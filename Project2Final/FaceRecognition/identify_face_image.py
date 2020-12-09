@@ -14,6 +14,9 @@ classifier_filename = '~/OneDrive/Desktop/IdentificationModule/class/classifier.
 npy='~/OneDrive/Desktop/IdentificationModule/npy'
 train_img= '~/OneDrive/Desktop/IdentificationModule/train_img'
 WINDOW_TITLE = "Take photo using SPACE to continue with the process."
+# cwd = "C:\\Users\\jagib\\Documents\\Revature\\JewlzAndTheBoyz-EmailCategorizationBot-P2\\Project2Final"
+
+
 
 def captureAndIdentify(cwd):
     os.chdir(cwd + '/FaceRecognition/')
@@ -147,10 +150,14 @@ def captureAndIdentify(cwd):
                         best_class_indices = np.argmax(predictions, axis=1)
                         # print(best_class_indices)
                         best_class_probabilities = predictions[np.arange(len(best_class_indices)), best_class_indices]
-                        print(best_class_probabilities)
+                        print('Best class indicies: ', best_class_indices)
+                        print('Best class probabilites: ' ,best_class_probabilities)
 
                         if len([x for x in predictions[0].tolist() if x >= 0.8]) == 0:
+                            print('No Valid Faces')
                             return 'Error: No valid faces detected. Will not continue with the process.'
+                        else:
+                            print('Here')
 
                         cv2.rectangle(frame, (bb[i][0], bb[i][1]), (bb[i][2], bb[i][3]), (0, 255, 0), 2)    #boxing face
 
@@ -158,9 +165,9 @@ def captureAndIdentify(cwd):
                         text_x = bb[i][0]
                         text_y = bb[i][3] + 20
                         print('Result Indices: ', best_class_indices[0])
-                        print(HumanNames)
+                        print('Human Names: ', HumanNames)
                         for H_i in HumanNames:
-                            # print(H_i)
+                            print('Human at index: ',H_i)
                             if HumanNames[best_class_indices[0]] == H_i:
                                 result_names = HumanNames[best_class_indices[0]]
                                 cv2.putText(frame, result_names, (text_x, text_y), cv2.FONT_HERSHEY_COMPLEX_SMALL,
@@ -179,3 +186,5 @@ def captureAndIdentify(cwd):
             cv2.destroyAllWindows()
 
     return "Success. Valid faces detected. Will continue with the process."
+
+# captureAndIdentify(cwd)
