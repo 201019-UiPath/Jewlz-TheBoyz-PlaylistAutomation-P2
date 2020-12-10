@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>817,860</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>625,952</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>process_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -70,7 +70,7 @@
       <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="process" sap:VirtualizedContainerService.HintSize="797,800" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="process" sap:VirtualizedContainerService.HintSize="605,892" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ss:SecureString" Name="ClientSecret" />
       <Variable x:TypeArguments="x:String" Name="ClientID" />
@@ -82,48 +82,48 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetEmail workflow" sap:VirtualizedContainerService.HintSize="755,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="GmailFlow\GetEmail.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetEmail workflow" sap:VirtualizedContainerService.HintSize="563,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="GmailFlow\GetEmail.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
         <OutArgument x:TypeArguments="ugm:GmailMessage[]" x:Key="out_Emails">[Emails]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CheckForLabel workflow" sap:VirtualizedContainerService.HintSize="755,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="GmailFlow\CheckForLabel.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CheckForLabel workflow" sap:VirtualizedContainerService.HintSize="563,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="GmailFlow\CheckForLabel.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_Label">[in_TransactionItem.SpecificContent("TagName").ToString]</InArgument>
         <OutArgument x:TypeArguments="x:Boolean" x:Key="out_LabelExists">[LabelExists]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <If Condition="[LabelExists]" sap:VirtualizedContainerService.HintSize="755,454" sap2010:WorkflowViewState.IdRef="If_2">
-      <If.Then>
-        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SortEmails workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="GmailFlow\SortEmails.xaml">
-          <ui:InvokeWorkflowFile.Arguments>
-            <InArgument x:TypeArguments="ugm:GmailMessage[]" x:Key="in_Emails">[Emails]</InArgument>
-            <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          </ui:InvokeWorkflowFile.Arguments>
-        </ui:InvokeWorkflowFile>
-      </If.Then>
+    <If Condition="[LabelExists]" sap:VirtualizedContainerService.HintSize="563,419" sap2010:WorkflowViewState.IdRef="If_2">
       <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,306" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence sap:VirtualizedContainerService.HintSize="418,271" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CreateLabel workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="GmailFlow\CreateLabel.xaml">
-            <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_Label">[in_TransactionItem.SpecificContent("TagName").ToString]</InArgument>
-            </ui:InvokeWorkflowFile.Arguments>
-          </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SortEmails workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="GmailFlow\SortEmails.xaml">
-            <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="ugm:GmailMessage[]" x:Key="in_Emails">[Emails]</InArgument>
-              <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-            </ui:InvokeWorkflowFile.Arguments>
-          </ui:InvokeWorkflowFile>
+          <Sequence sap:VirtualizedContainerService.HintSize="376,179" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CreateLabel workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="GmailFlow\CreateLabel.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_Label">[in_TransactionItem.SpecificContent("TagName").ToString]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+          </Sequence>
         </Sequence>
       </If.Else>
     </If>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SortEmails workflow" sap:VirtualizedContainerService.HintSize="563,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="GmailFlow\SortEmails.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="ugm:GmailMessage[]" x:Key="in_Emails">[Emails]</InArgument>
+        <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
   </Sequence>
 </Activity>

@@ -2,11 +2,12 @@
   <x:Members>
     <x:Property Name="in_Emails" Type="InArgument(ugm:GmailMessage[])" />
     <x:Property Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>550,684</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>550,746</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SortEmails_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -55,15 +56,18 @@
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>UiPath.GSuite</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SortEmails" sap:VirtualizedContainerService.HintSize="530,624" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SortEmails" sap:VirtualizedContainerService.HintSize="530,686" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uga:GSuiteApplicationScope ApiKey="{x:Null}" ContinueOnError="{x:Null}" CredentialID="{x:Null}" CredentialSecret="{x:Null}" Folder="{x:Null}" KeyPath="{x:Null}" SecureCredentialSecret="{x:Null}" ServiceAccountEmail="{x:Null}" TimeoutMS="{x:Null}" UserEmail="{x:Null}" AuthenticationType="OAuthClientID" DataStoreLocation="Local disk" DisplayName="GSuite Application Scope" HasDomainWideAccesss="False" sap:VirtualizedContainerService.HintSize="488,532" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_1" KeyType="JSON" OAuthClient="UiPath" Password="notasecret" Services="Unselected">
+    <uga:GSuiteApplicationScope ApiKey="{x:Null}" ContinueOnError="{x:Null}" CredentialID="{x:Null}" CredentialSecret="{x:Null}" Folder="{x:Null}" KeyPath="{x:Null}" SecureCredentialSecret="{x:Null}" ServiceAccountEmail="{x:Null}" TimeoutMS="{x:Null}" UserEmail="{x:Null}" AuthenticationType="OAuthClientID" DataStoreLocation="Local disk" DisplayName="GSuite Application Scope" HasDomainWideAccesss="False" sap:VirtualizedContainerService.HintSize="488,594" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_1" KeyType="JSON" OAuthClient="UiPath" Password="notasecret" Services="Unselected">
       <uga:GSuiteApplicationScope.AuthenticationScopes>
         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
       </uga:GSuiteApplicationScope.AuthenticationScopes>
@@ -72,19 +76,19 @@
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ug:SimpleObjectContainer" Name="GSuiteScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="454,421" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="454,483" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ForEach x:TypeArguments="ugm:GmailMessage" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="412,329" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_Emails]">
+            <ui:ForEach x:TypeArguments="ugm:GmailMessage" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="412,391" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_Emails]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="ugm:GmailMessage">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="ugm:GmailMessage" Name="mail" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,196" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,258" sap2010:WorkflowViewState.IdRef="Sequence_3">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -97,6 +101,12 @@
                         </scg:List>
                       </uga:ChangeLabels.NewLabels>
                     </uga:ChangeLabels>
+                    <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="[in_Config(&quot;EmailInputQueueName&quot;).ToString]">
+                      <ui:AddQueueItem.ItemInformation>
+                        <InArgument x:TypeArguments="x:String" x:Key="Tag">[in_TransactionItem.SpecificContent("TagName").ToString]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="Body">[mail.Body.ToString]</InArgument>
+                      </ui:AddQueueItem.ItemInformation>
+                    </ui:AddQueueItem>
                   </Sequence>
                 </ActivityAction>
               </ui:ForEach.Body>
