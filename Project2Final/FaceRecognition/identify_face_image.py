@@ -9,16 +9,15 @@ import time
 import pickle
 import sys
 
-modeldir = '~/OneDrive/Desktop/IdentificationModule/model/20170511-185253.pb'
-classifier_filename = '~/OneDrive/Desktop/IdentificationModule/class/classifier.pkl'
-npy='~/OneDrive/Desktop/IdentificationModule/npy'
-train_img= '~/OneDrive/Desktop/IdentificationModule/train_img'
-WINDOW_TITLE = "Take photo using SPACE to continue with the process."
-# cwd = "C:\\Users\\jagib\\Documents\\Revature\\JewlzAndTheBoyz-EmailCategorizationBot-P2\\Project2Final"
 
+def captureAndIdentify(cwd, relative_path):
 
+    modeldir = relative_path + '/model/20170511-185253.pb'
+    classifier_filename = relative_path + '/class/classifier.pkl'
+    npy= relative_path + '/npy'
+    train_img= relative_path + '/train_img'
+    WINDOW_TITLE = "Take photo using SPACE to continue with the process."
 
-def captureAndIdentify(cwd):
     os.chdir(cwd + '/FaceRecognition/')
     if not hasattr(sys, 'argv'):
         sys.argv  = ['']
@@ -185,6 +184,5 @@ def captureAndIdentify(cwd):
 
             cv2.destroyAllWindows()
 
-    return "Success. Valid faces detected. Will continue with the process."
+    return "Success. Valid faces detected. Will continue with the process."  
 
-# captureAndIdentify(cwd)

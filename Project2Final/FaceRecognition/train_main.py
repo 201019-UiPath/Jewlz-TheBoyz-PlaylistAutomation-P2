@@ -5,7 +5,7 @@ import os
 import sys
 from classifier import training
 
-def startTraining(cwd):
+def startTraining(cwd, relative_path):
     #os.chdir(cwd + '/FaceRecognition/')
     cwd = os.getcwd()
     os.chdir(cwd)
@@ -13,9 +13,10 @@ def startTraining(cwd):
         sys.argv  = ['']
     sys.path.append('.')
 
-    datadir = '~/OneDrive/Desktop/IdentificationModule/pre_img'
-    modeldir = '~/OneDrive/Desktop/IdentificationModule/model/20170511-185253.pb'
-    classifier_filename = '~/OneDrive/Desktop/IdentificationModule/class/classifier.pkl'
+    datadir = relative_path + '/pre_img/'
+    modeldir = relative_path + '/model/20170511-185253.pb'
+    classifier_filename =  relative_path + '/class/classifier.pkl'
+
     print("Training Start")
     obj=training(datadir, modeldir, classifier_filename)
     print("Training Complete")
@@ -23,3 +24,6 @@ def startTraining(cwd):
     print('Saved classifier model to file "%s"' % get_file)
     return "Training completed."
 
+# c = 'c:/Users/jagib/Documents/Revature/JewlzAndTheBoyz-EmailCategorizationBot-P2/Project2Final/FaceRecognition/'
+# w = '~/OneDrive/Desktop/IdentificationModule/'
+# startTraining(c, w)

@@ -8,8 +8,8 @@ import numpy as np
 
 WINDOW_TITLE = "Take photos using SPACE. Close window when done."
 
-def takePhoto(cwd, name):
-    os.chdir(cwd)
+def takePhoto( in_IdModulePath, name):
+    os.chdir( in_IdModulePath)
 
     #f = open("teststringimage.txt", "w+")
     cam = cv2.VideoCapture(0)
@@ -30,7 +30,7 @@ def takePhoto(cwd, name):
         elif k%256 == 32:
             # SPACE pressed
             img_name = "frame_{}.png".format(img_counter)
-            cv2.imwrite(cwd + path + img_name, frame)
+            cv2.imwrite( in_IdModulePath + path + img_name, frame)
             print("{} written!".format(img_name))
             img_counter += 1
 

@@ -5,21 +5,23 @@ import time
 
 
 
-def startPreprocessing(cwd, datadir):
+def startPreprocessing(cwd, relative_path):
 
-    input_datadir = '~/OneDrive/Desktop/IdentificationModule/pre_img'
-    output_datadir = '~/OneDrive/Desktop/IdentificationModule/train_img'
+    input_datadir = relative_path + '/pre_img'
+    output_datadir = relative_path + '/train_img'
+
 
     os.chdir(cwd + '/FaceRecognition/')
     if not hasattr(sys, 'argv'):
         sys.argv  = ['']
     sys.path.append('.')
 
-    if os.path.isdir('C:\\Users\\jagib\\OneDrive\\Desktop\\IdentificationModule\\pre_img'):
-        shutil.rmtree('C:\\Users\\jagib\\OneDrive\\Desktop\\IdentificationModule\\pre_img')
+    fullpath = os.path.expanduser(relative_path + '/pre_img/')
+    if os.path.isdir(fullpath):
+        shutil.rmtree(fullpath)
         time.sleep(.3) # making sure the folder is completely deleted before trying to create it again
-        os.mkdir('C:\\Users\\jagib\\OneDrive\\Desktop\\IdentificationModule\\pre_img')
-
+        os.mkdir(fullpath)
+  
     from preprocess import preprocesses
 
     obj = preprocesses(input_datadir,output_datadir)

@@ -7,7 +7,7 @@
     "UiPath.Excel.Activities": "[2.7.2]",
     "UiPath.GSuite.Activities": "[1.8.0]",
     "UiPath.Python.Activities": "[1.1.7594.35963]",
-    "UiPath.System.Activities": "[19.10.1]",
+    "UiPath.System.Activities": "[20.4.0]",
     "UiPath.UIAutomation.Activities": "[19.11.3]"
   },
   "webServices": [],
