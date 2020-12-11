@@ -31,6 +31,7 @@ def captureAndIdentify(cwd, relative_path):
     cv2.namedWindow(WINDOW_TITLE)
 
     img_name = ''
+    result_names = ''
 
     while cv2.getWindowProperty(WINDOW_TITLE, 0) >= 0:
         ret, frame = cam.read()
@@ -184,5 +185,5 @@ def captureAndIdentify(cwd, relative_path):
 
             cv2.destroyAllWindows()
 
-    return "Success. Valid faces detected. Will continue with the process."  
+    return result_names
 
