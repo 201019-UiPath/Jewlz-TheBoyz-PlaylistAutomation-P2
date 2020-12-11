@@ -59,6 +59,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Download_FacialRecognition_Config" sap:VirtualizedContainerService.HintSize="475.2,717.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -67,7 +68,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ucas:DownloadStorageFile TimeoutMS="{x:Null}" Destination="[Directory.GetCurrentDirectory + &quot;facialRecConfig.xlsx&quot;]" DisplayName="Download Storage File" sap:VirtualizedContainerService.HintSize="433.6,22.4" sap2010:WorkflowViewState.IdRef="DownloadStorageFile_1" Path="facialRecConfig.xlsx" StorageBucketName="FacialRecognitionConfigFiles" />
+    <ucas:DownloadStorageFile TimeoutMS="{x:Null}" Destination="[Directory.GetCurrentDirectory + &quot;\FacialRecognitionSystem\facialRecConfig.xlsx&quot;]" DisplayName="Download Storage File" sap:VirtualizedContainerService.HintSize="433.6,22.4" sap2010:WorkflowViewState.IdRef="DownloadStorageFile_1" Path="facialRecConfig.xlsx" StorageBucketName="FacialRecognitionConfigFiles" />
     <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="433.6,562.4" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" Visible="False" WorkbookPath="FacialRecognitionSystem\facialRecConfig.xlsx">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
