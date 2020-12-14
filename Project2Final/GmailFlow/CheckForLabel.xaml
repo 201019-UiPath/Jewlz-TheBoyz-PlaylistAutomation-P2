@@ -63,7 +63,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:Comment sap:VirtualizedContainerService.HintSize="645,265" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// ToDo: Once we start configuring the automation to login to different gmail accounts based on which face was recognized, we will need to create another in argument that passes in the current users gmail so the correct gmail is opened. &#xA;&#xA;ALSO each of the selectors for the activites below will need to be fine tuned so that they match up with the current gmail account as well (not just &quot;jewlzand theboyz&quot; like it is currently." />
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Inbox'" sap:VirtualizedContainerService.HintSize="645,591" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="0316506420bdc2b4a912f6c3f2127a8a" Selector="&lt;html app='chrome.exe' title='Inbox * - jewlzandtheboyz@gmail.com - Gmail' /&gt;&#xA;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Inbox'" sap:VirtualizedContainerService.HintSize="645,591" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="0316506420bdc2b4a912f6c3f2127a8a" Selector="&lt;html app='chrome.exe' title='*Gmail' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -110,7 +110,7 @@
                 </Assign>
               </If.Then>
               <If.Else>
-                <Assign sap:VirtualizedContainerService.HintSize="262,59" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:Boolean">[out_LabelExists]</OutArgument>
                   </Assign.To>
