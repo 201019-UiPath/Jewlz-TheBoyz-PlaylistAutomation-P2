@@ -72,7 +72,7 @@
             </sap:WorkflowViewStateService.ViewState>
             <ui:UiElementExists DisplayName="Element Exists 'SPAN'" Exists="[out_LoginPageExists]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
               <ui:UiElementExists.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="715f79b221e363522998f73f694ab29f" Selector="&lt;webctrl tag='SPAN' aaname='Choose an account' /&gt;" TimeoutMS="5000">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="715f79b221e363522998f73f694ab29f" Selector="&lt;webctrl tag='SPAN' aaname='Choose an account' /&gt;" TimeoutMS="2500">
                   <ui:Target.WaitForReady>
                     <InArgument x:TypeArguments="ui:WaitForReady" />
                   </ui:Target.WaitForReady>
