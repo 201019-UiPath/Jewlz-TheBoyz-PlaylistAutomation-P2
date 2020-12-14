@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ucas="clr-namespace:UiPath.Core.Activities.Storage;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mewd="clr-namespace:Microsoft.Exchange.WebServices.Data;assembly=Microsoft.Exchange.WebServices" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ucas="clr-namespace:UiPath.Core.Activities.Storage;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Allows the Orchestrator queue name to be passed as an argument, instead of only being defined in the configuration file." Name="in_OrchestratorQueueName" Type="InArgument(x:String)" />
   </x:Members>
@@ -8,7 +8,7 @@
   <sap:VirtualizedContainerService.HintSize>707.2,858.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="27">
+    <scg:List x:TypeArguments="x:String" Capacity="54">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -36,10 +36,11 @@
       <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
       <x:String>System.Net</x:String>
       <x:String>UiPath.Excel</x:String>
+      <x:String>Microsoft.Exchange.WebServices.Data</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="23">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="50">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -63,6 +64,9 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>Microsoft.Exchange.WebServices</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="[Process title]&#xA;[Process description]&#xA;[Additional information (e.g., author, contact information and applications involved and required external setup)]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="687.2,798.4" sap2010:WorkflowViewState.IdRef="StateMachine_1">
@@ -500,11 +504,14 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <Transition.To>
-                            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="556.8,1112" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
+                            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="556.8,1298.4" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
                               <State.Entry>
-                                <TryCatch DisplayName="Try to close all aplications" sap:VirtualizedContainerService.HintSize="512,967.2" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                                <TryCatch DisplayName="Try to close all aplications" sap:VirtualizedContainerService.HintSize="512,1153.6" sap2010:WorkflowViewState.IdRef="TryCatch_4">
                                   <TryCatch.Try>
-                                    <Sequence sap:VirtualizedContainerService.HintSize="475.2,736" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                    <Sequence sap:VirtualizedContainerService.HintSize="475.2,922.4" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                      <Sequence.Variables>
+                                        <Variable x:TypeArguments="mewd:Attachment" Name="attachment" />
+                                      </Sequence.Variables>
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -531,6 +538,10 @@
                                               <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                                             </ActivityAction.Argument>
                                             <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,180.8" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                              <Sequence.Variables>
+                                                <Variable x:TypeArguments="snm:MailMessage" Name="mail" />
+                                                <Variable x:TypeArguments="snm:AttachmentCollection" Name="attachments" />
+                                              </Sequence.Variables>
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -548,6 +559,13 @@
                                         </ui:ExcelApplicationScope.Body>
                                       </ui:ExcelApplicationScope>
                                       <ucas:UploadStorageFile TimeoutMS="{x:Null}" Destination="sentimentOutput.xlsx" DisplayName="Upload Storage File" sap:VirtualizedContainerService.HintSize="433.6,22.4" sap2010:WorkflowViewState.IdRef="UploadStorageFile_1" Path="sentimentOutput.xlsx" StorageBucketName="SentimentAnalysis" />
+                                      <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" TimeoutMS="{x:Null}" Body="Hello, &#xD;&#xA;&#xD;&#xA;Your sentiment analysis file was updated. To view your changes check your uipath sentiment analysis storage bucket&#xD;&#xA;&#xD;&#xA;Thank you" DisplayName="Send SMTP Mail Message" Email="jewlzandtheboyz@gmail.com" EnableSSL="True" sap:VirtualizedContainerService.HintSize="433.6,146.4" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="False" Password="uipathtesting1!" Port="587" SecureConnection="Auto" Server="smtp.gmail.com" Subject="Sentiment Analysis Process Triggered" To="jewlzandtheboyz@gmail.com">
+                                        <ui:SendMail.Files>
+                                          <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                                            <InArgument x:TypeArguments="x:String">sentimentOutput.xlsx</InArgument>
+                                          </scg:List>
+                                        </ui:SendMail.Files>
+                                      </ui:SendMail>
                                     </Sequence>
                                   </TryCatch.Try>
                                   <TryCatch.Catches>
