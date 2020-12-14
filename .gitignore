@@ -5,6 +5,6 @@ FacialRecognition1.*/
 Project2Final/Exceptions_Screenshots/
 Project2Final/.screenshots/
 .facialRecConfig.xlsx
-# SentimentPerformer/Exceptions_Screenshots/
-# SentimentPerformer/.screenshots/
-# .debug.log
+SentimentPerformer/Exceptions_Screenshots/
+SentimentPerformer/.screenshots/
+.debug.log
