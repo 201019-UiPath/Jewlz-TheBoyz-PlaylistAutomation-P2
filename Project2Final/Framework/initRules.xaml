@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>395.2,721.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>396,675</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>initRules_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -59,7 +59,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="initRules" sap:VirtualizedContainerService.HintSize="375.2,621.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="initRules" sap:VirtualizedContainerService.HintSize="376,615" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="Brian" Name="TestName" />
       <Variable x:TypeArguments="sd:DataTable" Name="RulesDT" />
@@ -69,7 +69,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ReadRange AddHeaders="True" sap2010:Annotation.AnnotationText="TestName variable can be removed once Facial Recognition is all set up" DataTable="[RulesDT]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="333.6,132" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[in_PersonId]" WorkbookPath="../Rules.xlsx">
+    <ui:ReadRange AddHeaders="True" sap2010:Annotation.AnnotationText="TestName variable can be removed once Facial Recognition is all set up" DataTable="[RulesDT]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,129" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[in_PersonId]" WorkbookPath="Rules.xlsx">
       <ui:ReadRange.Range>
         <InArgument x:TypeArguments="x:String">
           <Literal x:TypeArguments="x:String" Value="" />
@@ -81,25 +81,25 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ReadRange>
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[RulesDT]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="333.6,356.8" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[RulesDT]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="334,354" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Add queue items" sap:VirtualizedContainerService.HintSize="283.2,208" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Add queue items" sap:VirtualizedContainerService.HintSize="284,206" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="241.6,115.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]">
+              <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]">
                 <ui:AddQueueItem.ItemInformation>
                   <InArgument x:TypeArguments="x:String" x:Key="TagName">[row("Tag Name").ToString]</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="from">[row("from").ToString]</InArgument>
