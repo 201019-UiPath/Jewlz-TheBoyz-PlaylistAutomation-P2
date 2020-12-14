@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>572,1682</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>572,1680</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CreateLabel_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -56,14 +56,14 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="First checks if the specified label exists. If it doesn't, then this workflow creates a new label in the gmail account to sort emails into." DisplayName="CreateLabel" sap:VirtualizedContainerService.HintSize="552,1622" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="First checks if the specified label exists. If it doesn't, then this workflow creates a new label in the gmail account to sort emails into." DisplayName="CreateLabel" sap:VirtualizedContainerService.HintSize="552,1620" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Inbox'" sap:VirtualizedContainerService.HintSize="510,1486" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="0316506420bdc2b4a912f6c3f2127a8a" Selector="&lt;html app='chrome.exe' title='Inbox * - jewlzandtheboyz@gmail.com - Gmail' /&gt;&#xA;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Inbox'" sap:VirtualizedContainerService.HintSize="510,1486" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="0316506420bdc2b4a912f6c3f2127a8a" Selector="&lt;html app='chrome.exe' title='*Gmail' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -119,7 +119,7 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'Settings  Page'" sap:VirtualizedContainerService.HintSize="434,956" sap2010:WorkflowViewState.IdRef="BrowserScope_3" InformativeScreenshot="29668259694bd9afd9074781e54ca816" Selector="&lt;html app='chrome.exe' title='Settings - jewlzandtheboyz@gmail.com - Gmail' /&gt;&#xA;">
+            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'Settings  Page'" sap:VirtualizedContainerService.HintSize="434,956" sap2010:WorkflowViewState.IdRef="BrowserScope_3" InformativeScreenshot="29668259694bd9afd9074781e54ca816" Selector="&lt;html app='chrome.exe' title='*Gmail' /&gt;">
               <ui:BrowserScope.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>

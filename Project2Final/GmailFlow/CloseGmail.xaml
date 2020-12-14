@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="CloseGmail" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="573.6,922.8" sap2010:WorkflowViewState.IdRef="CloseGmail_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="CloseGmail" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="574,872" sap2010:WorkflowViewState.IdRef="CloseGmail_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -44,40 +44,40 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CloseGmail" sap:VirtualizedContainerService.HintSize="553.6,822.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CloseGmail" sap:VirtualizedContainerService.HintSize="554,812" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Inbox'" sap:VirtualizedContainerService.HintSize="511.6,730.8" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="be7c47ed24f95a79f369f59a933b9501" Selector="&lt;html app='chrome.exe' title='*' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Inbox'" sap:VirtualizedContainerService.HintSize="512,720" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="be7c47ed24f95a79f369f59a933b9501" Selector="&lt;html app='chrome.exe' title='*Gmail' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="477.6,584.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="478,574" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:CloseTab Browser="{x:Null}" sap2010:Annotation.AnnotationText="Closes the chrome tab &#xD;&#xA;with the gmail account after either creating the new label, or verifying that it already exists." DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="435.6,116" sap2010:WorkflowViewState.IdRef="CloseTab_1">
+            <ui:CloseTab Browser="{x:Null}" sap2010:Annotation.AnnotationText="Closes the chrome tab &#xA;with the gmail account after either creating the new label, or verifying that it already exists." DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="436,109" sap2010:WorkflowViewState.IdRef="CloseTab_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:CloseTab>
-            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="435.6,336.8" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,333" sap2010:WorkflowViewState.IdRef="CommentOut_1">
               <ui:CommentOut.Body>
-                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,259.2" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,255" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:CloseWindow Selector="{x:Null}" TimeoutMS="{x:Null}" UseWindow="{x:Null}" sap2010:Annotation.AnnotationText="Closes the chrome window with the gmail account after either creating the new label, or verifying that it already exists." DisplayName="Close Window 'chrome.exe Inbox'" sap:VirtualizedContainerService.HintSize="334,167.2" sap2010:WorkflowViewState.IdRef="CloseWindow_1" InformativeScreenshot="4a22dc26c151b0f0db1f44a3ab0c5a7c" WaitForReady="INTERACTIVE">
+                  <ui:CloseWindow Selector="{x:Null}" TimeoutMS="{x:Null}" UseWindow="{x:Null}" sap2010:Annotation.AnnotationText="Closes the chrome window with the gmail account after either creating the new label, or verifying that it already exists." DisplayName="Close Window 'chrome.exe Inbox'" sap:VirtualizedContainerService.HintSize="334,163" sap2010:WorkflowViewState.IdRef="CloseWindow_1" InformativeScreenshot="4a22dc26c151b0f0db1f44a3ab0c5a7c" WaitForReady="INTERACTIVE">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>

@@ -62,7 +62,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe  Gmail'" sap:VirtualizedContainerService.HintSize="434,1018" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="3691bb22983b72f516c559919ca84dfe" Selector="&lt;html app='chrome.exe' title='*' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe  Gmail'" sap:VirtualizedContainerService.HintSize="434,1018" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="3691bb22983b72f516c559919ca84dfe" Selector="&lt;html app='chrome.exe' title='*Gmail' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -159,7 +159,7 @@
                 </ui:CursorPosition>
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="82731b750b5d7dad24f1911c14b0fc33" Selector="&lt;webctrl parentid='headingText' tag='SPAN' /&gt;&#xD;&#xA;&lt;nav up='4' /&gt;&#xD;&#xA;&lt;webctrl idx='2' isleaf='1' parentid='passwordNext' tag='DIV' /&gt;&#xD;&#xA;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="82731b750b5d7dad24f1911c14b0fc33" Selector="&lt;webctrl parentid='headingText' tag='SPAN' /&gt;&#xA;&lt;nav up='4' /&gt;&#xA;&lt;webctrl idx='2' isleaf='1' parentid='passwordNext' tag='DIV' /&gt;&#xA;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
